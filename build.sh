@@ -2,7 +2,7 @@ SOURCE="pages/"
 COMPONENTS="components/*"
 BUILD_DIR="build"
 
-for FILE in $(find $SOURCE -name '*.html' -not -path 'components/*'); do
+for FILE in $(find $SOURCE -name '*.html' -or -name '*.css' -not -path 'components/*'); do
   OUT_FILE="$(echo "$FILE" | sed 's|pages/||g')"
   echo "Creating: $BUILD_DIR/$(dirname $OUT_FILE)"
   mkdir -p "$BUILD_DIR/$(dirname $OUT_FILE)"
